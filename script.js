@@ -171,6 +171,47 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+
+    // Acordeón para FAQs en la sección de precios
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    
+    if (accordionItems.length > 0) {
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            const content = item.querySelector('.accordion-content');
+            const icon = item.querySelector('.accordion-icon i');
+            
+            if (header && content && icon) {
+                header.addEventListener('click', () => {
+                    // Cerrar todos los otros elementos
+                    accordionItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                            const otherIcon = otherItem.querySelector('.accordion-icon i');
+                            if (otherIcon) {
+                                otherIcon.classList.remove('fa-minus');
+                                otherIcon.classList.add('fa-plus');
+                            }
+                        }
+                    });
+                    
+                    // Alternar el elemento actual
+                    item.classList.toggle('active');
+                    
+                    if (item.classList.contains('active')) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                    } else {
+                        content.style.maxHeight = null;
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                    }
+                });
+            }
+        });
+    }
     
     // Animation on scroll using Intersection Observer
     const animatedElements = document.querySelectorAll(".service-card, .process-item, .featured-content, .featured-image, .contact-info, .contact-form-container, .hero-content, .hero-image");
