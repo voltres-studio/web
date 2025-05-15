@@ -116,7 +116,7 @@
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
+                        <i class="fa-solid fa-money-bill-wave"></i>
                     </div>
                     <h3>Precios Competitivos</h3>
                     <p>Como estudiantes de Desarrollo de Aplicaciones Web, ofrecemos soluciones digitales de calidad profesional a precios accesibles, ideales para emprendedores y pequeños negocios que buscan crecer sin grandes inversiones.</p>
@@ -125,7 +125,7 @@
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
+                        <i class="fa-solid fa-server"></i>
                     </div>
                     <h3>Servicio 24/7</h3>
                     <p>Tu sitio web estará disponible en línea las 24 horas del día, los 7 días de la semana, asegurando una experiencia ininterrumpida para tus clientes.</p>
@@ -319,13 +319,14 @@
                 <!-- Plan Básico -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Menú QR Básico</h3>
+                        <h3>Plan Básico</h3>
                         <div class="pricing-price">
                             <span class="currency">€</span>
                             <span class="amount">350</span>
                             <span class="period">pago único</span>
                         </div>
                         <p class="pricing-subtitle">Ideal para pequeños negocios</p>
+                        <span class="currency">¡Prueba gratis de 2 semanas!</span>
                     </div>
                     
                     <div class="pricing-features">
@@ -349,7 +350,7 @@
                 <div class="pricing-card featured">
                     <div class="pricing-badge">Recomendado</div>
                     <div class="pricing-header">
-                        <h3>Menú QR Premium</h3>
+                        <h3>Plan Avanzado</h3>
                         <div class="pricing-price">
                             <span class="currency">€</span>
                             <span class="amount">500</span>
@@ -383,7 +384,7 @@
                 <!-- Plan Avanzado -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Sitio Web Completo</h3>
+                        <h3>Plan Profesional</h3>
                         <div class="pricing-price">
                             <span class="currency">€</span>
                             <span class="amount">1200</span>
@@ -594,22 +595,59 @@
                     </div>
                     
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/voltres_studio/" class="social-link"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
                 <div class="contact-form-container">
-                    <!-- Contenido del formulario eliminado, ahora un mensaje y un botón mailto -->
-                    <h3>Envíanos un Correo</h3>
-                    <p style="margin-bottom: 1.5rem;">Haz clic en el botón de abajo para abrir tu aplicación de correo electrónico y enviarnos un mensaje directamente a <strong>infovoltres@gmail.com</strong>.</p>
-                    <a href="mailto:infovoltres@gmail.com?subject=Consulta%20desde%20la%20web%20Voltres&body=Hola%20Voltres%2C%0A%0AEstoy%20interesado%20en%20sus%20servicios%20y%20me%20gustaría%20obtener%20más%20información%20sobre..." class="btn btn-primary full-width" style="text-align: center;">
-                        Contactar por Email
-                    </a>
+                    <h3>Formulario de Contacto</h3>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Tu número de teléfono">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="empresa">Empresa/Negocio</label>
+                            <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa o negocio">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="servicio">Servicio que te interesa *</label>
+                            <select id="servicio" name="servicio" required>
+                                <option value="" disabled selected>Selecciona un servicio</option>
+                                <option value="Plan Básico">Plan Básico</option>
+                                <option value="Plan Avanzado">Plan Avanzado</option>
+                                <option value="Plan Profesional">Plan Profesional</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="politica" name="politica" required>
+                            <label for="politica">Acepto la política de privacidad *</label>
+                        </div>
+                        
+                        <button type="button" id="enviarContacto" class="btn btn-primary full-width">Enviar Mensaje</button>
+                    </form>
                     <p style="font-size: 0.9em; color: var(--gray); margin-top: 1rem;">
-                        Nota: Esto abrirá tu cliente de correo electrónico predeterminado (Outlook, Gmail, Apple Mail, etc.). Asegúrate de tener uno configurado.
+                        * Campos obligatorios
                     </p>
                 </div>
             </div>

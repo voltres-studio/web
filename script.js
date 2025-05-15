@@ -172,6 +172,54 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Formulario de contacto
+    const contactForm = document.getElementById('contactForm');
+    const enviarContactoBtn = document.getElementById('enviarContacto');
+    
+    if (contactForm && enviarContactoBtn) {
+        enviarContactoBtn.addEventListener('click', function() {
+            // Validar el formulario
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+            
+            // Obtener los valores del formulario
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value || 'No proporcionado';
+            const empresa = document.getElementById('empresa').value || 'No proporcionada';
+            const servicio = document.getElementById('servicio').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            // Construir el cuerpo del correo
+            const asunto = `Consulta desde la web Voltres - ${servicio}`;
+            const cuerpoMensaje = 
+`Hola Voltres,
+
+Me gustaría solicitar información sobre sus servicios. Estos son mis datos:
+
+Nombre: ${nombre}
+Email: ${email}
+Teléfono: ${telefono}
+Empresa/Negocio: ${empresa}
+Servicio de interés: ${servicio}
+
+Mensaje:
+${mensaje}
+
+Saludos.`;
+            
+            // Codificar los parámetros para URL
+            const emailParams = encodeURIComponent(cuerpoMensaje);
+            const asuntoParams = encodeURIComponent(asunto);
+            
+            // Crear y abrir el enlace mailto
+            const mailtoLink = `mailto:infovoltres@gmail.com?subject=${asuntoParams}&body=${emailParams}`;
+            window.location.href = mailtoLink;
+        });
+    }
+
     // Acordeón para FAQs en la sección de precios
     const accordionItems = document.querySelectorAll('.accordion-item');
     
